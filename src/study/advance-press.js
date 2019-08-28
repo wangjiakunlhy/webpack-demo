@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import StepsLine from '../components/steps-line/steps-line'
 const Step = StepsLine.Step;
+import GuideBar from '../components/GuideBar/guideBar'
 
 class ProgressTag extends Component{
     constructor(props){
@@ -14,7 +15,7 @@ class ProgressTag extends Component{
                 {title:'完善个人信息',},
                 {title:'开户完成',},
             ],
-            currentKey: 1,
+            currentKey: 2,
             onePop: false,
         }
     }
@@ -40,23 +41,36 @@ class ProgressTag extends Component{
                 <StepsLine steps={steps} currentKey={currentKey} onePop={onePop}>
                     <Step stepKey={1}>
                         <div style={{width:'100%',height:300,background:'red'}}>
-                            one
+                            <h1>1</h1>
                         </div>
                     </Step>
                     <Step stepKey={2}>
                         <div style={{width:'100%',height:300,background:'green'}}>
-                            two
+                            <h1>2</h1>
                         </div>
                     </Step>
                     <Step stepKey={3}>
                         <div style={{width:'100%',height:300,background:'blue'}}>
-                            three
+                            <h1>3</h1>
                         </div>
                     </Step>
-                    <Step stepKey={4}>4</Step>
-                    <Step stepKey={5}>5</Step>
-                    <Step stepKey={6}>完成开户</Step>
+                    <Step stepKey={4}>
+                        <div style={{width:'100%',height:300,background:'orange'}}>
+                            <h1>4</h1>
+                        </div>
+                    </Step>
+                    <Step stepKey={5}>
+                        <div style={{width:'100%',height:300,background:'#cc00ff'}}>
+                            <h1>5</h1>
+                        </div>
+                    </Step>
+                    <Step stepKey={6}>
+                        <div style={{width:'100%',height:300,background:'#556688'}}>
+                            <h1>6</h1>
+                        </div>
+                    </Step>
                 </StepsLine>
+                <GuideBar currentStep={currentKey} stepNames={steps.map(item => {return item.title})}/>
                 <div>
                     <button disabled={currentKey === 1} onClick={()=>this.onChangeCurrentKey('pre')}>上一步</button>
                     <button disabled={currentKey === steps.length} onClick={()=>this.onChangeCurrentKey('next')}>下一步</button>
