@@ -1,0 +1,73 @@
+.progress-tag{
+  width: 90%;
+  margin-top: 50px;
+  position: absolute;
+   .base-line{
+    display: inline-block;
+    height: 14px;
+    border-radius: 6px;
+    position: relative;
+  }
+  .base-line-after{
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    right: -6px;
+    top: -5px;
+  }
+  .bg-line-off{
+    @extend .base-line;
+    background: #ccc;
+  }
+  .bg-line-off::after{
+    @extend .base-line-after;
+    background: #ccc;
+  }
+  .bg-line-on{
+    @extend .base-line;
+    background: orange;
+    transition: width 1s;
+  }
+  .bg-line-on::after{
+    @extend .base-line-after;
+    background: orange;
+  }
+  .text-title{
+    position: absolute;
+    top: 22px;
+    color: #ccc;
+  }
+  .text-title-on{
+    @extend .text-title;
+    color: #000;
+  }
+  .text-title-current{
+    @extend .text-title;
+    font-size: 22px;
+    transition: font-size 1s, color 1s;
+    color: #000;
+  }
+  .text-pop{
+    position: absolute;
+    right: -19px;
+    z-index: 9;
+    background: orange;
+    padding: 5px 12px;
+    top: -48px;
+    border-radius: 14px;
+  }
+  .text-pop::after{
+    content: '';
+    display: block;
+    width: 0px;
+    height: 0;
+    top: 32px;
+    right: 18px;
+    position: absolute;
+    border: 6px solid orange;
+    border-color: orange transparent transparent transparent;
+  }
+}
